@@ -22,7 +22,7 @@ function isInViewport(element) {
 
 function removeActiveClassFromAllSections() {
     for (const section of sections)
-        section.classList.remove("active");
+        section.classList.remove('active');
 }
 
 /**
@@ -36,15 +36,15 @@ function generateDynNavMenu (){
         const list = document.getElementById('navbar__list');
 
         const listItem = document.createElement('li');
-        listItem.setAttribute("id", `navli${i}`);
+        listItem.setAttribute('id', `navli${i}`);
 
         const listLink = document.createElement('a');
-        listLink.textContent = sections[i].getAttribute("data-nav");
-        listLink.setAttribute("id", `navlink${i}`);
+        listLink.textContent = sections[i].getAttribute('data-nav');
+        listLink.setAttribute('id', `navlink${i}`);
         listLink.setAttribute('href', `#${sections[i].getAttribute('id')}`);
         listLink.classList.add('menu__link', 'menu__link:hover');
-        listLink.addEventListener("click", function () {
-            sections[i].scrollIntoView({behavior: "smooth"});
+        listLink.addEventListener('click', function () {
+            sections[i].scrollTo({behavior: 'smooth', top: 100, left: 100,});
             event.preventDefault();
         });
 
@@ -53,6 +53,10 @@ function generateDynNavMenu (){
     }
 }
 
+// build the nav
+generateDynNavMenu();
+
+// Add class 'active' to section when near top of viewport
 window.addEventListener('scroll', function setActiveClass() {
     for(const section of sections){
         if(isInViewport(section)){
@@ -61,12 +65,6 @@ window.addEventListener('scroll', function setActiveClass() {
         }
     }
 });
-
-// build the nav
-generateDynNavMenu();
-
-// Add class 'active' to section when near top of viewport
-
 
 // Scroll to anchor ID using scrollTO event
 
