@@ -1,0 +1,22 @@
+{
+  "name": "landing_page",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RadwaSaleh/javascript-landing-page.git"
+  },
+  "author": "Radwa Saleh",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/RadwaSaleh/javascript-landing-page/issues"
+  },
+  "homepage": "https://github.com/RadwaSaleh/javascript-landing-page#readme",
+  "devDependencies": {
+    "eslint": "^7.7.0"
+  }
+}
