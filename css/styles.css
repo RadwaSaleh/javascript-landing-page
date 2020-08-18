@@ -36,7 +36,7 @@ h1 {
 h2 {
     border-bottom: 1px solid #cc1;
     font-family: 'Oxygen', Sans-Serif;
-    font-size: 3em;
+    font-size: 2em;
     color: #fff;
 }
 
@@ -110,10 +110,12 @@ section {
 
 
 /* ---- Theme Rules ---- */
-/* Landing Container Styles */
+/* Landing Container Styles. Note: hidden by default */
 .landing__container {
     padding: 1em;
     text-align: left;
+    display: block;
+    overflow: hidden;
 }
 
 @media only screen and (min-width: 35em){
@@ -220,3 +222,23 @@ section.active .landing__container::after {
         rotate(-360deg);
     }
 }
+
+/* Style the button that is used to open and close the collapsible content */
+.collapsible {
+    background-color: #e5e5e5;
+    color: #444;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 2em;
+    font-weight: bold;
+}
+
+/* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+.active, .collapsible:hover {
+    background-color: #F14925;
+}
+

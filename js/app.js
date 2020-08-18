@@ -58,10 +58,31 @@ const setSectionActiveClass = () => {
     }
 };
 
+const collapseSections = () => {
+    const collapsibles = document.getElementsByClassName("collapsible");
+    for(let i = 0; i < collapsibles.length; i++){
+        collapsibles[i].addEventListener('click', function () {
+            collapsibles[i].classList.toggle('active');
+            const container = collapsibles[i].nextElementSibling;
+            if(container.style.display === 'none'){
+                container.style.display = 'block'
+            }else{
+                container.style.display = 'none';
+            }
+        })
+    }
+
+};
+
+
 // build the nav
 generateDynNavMenu();
 
 // Add class 'active' to section when near top of viewport
 window.addEventListener('scroll', setSectionActiveClass);
+
+//collapse and uncollapse
+collapseSections();
+
 
 
