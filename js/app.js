@@ -18,11 +18,6 @@ const isInViewport = (element) => {
     );
 };
 
-const removeActiveClassFromAllSections = () => {
-    for (const section of sections)
-        section.classList.remove('active');
-};
-
 /**
  * Main Functions
  */
@@ -52,8 +47,7 @@ const generateDynNavMenu = () =>{
 const setSectionActiveClass = () => {
     for(const section of sections){
         if(isInViewport(section)){
-            removeActiveClassFromAllSections();
-            section.classList.add('active');
+            section.classList.toggle('active');
         }
     }
 };
@@ -64,10 +58,10 @@ const collapseSections = () => {
         collapsibles[i].addEventListener('click', function () {
             collapsibles[i].classList.toggle('active');
             const container = collapsibles[i].nextElementSibling;
-            if(container.style.display === 'none'){
-                container.style.display = 'block'
+            if(container.style.maxHeight){
+                container.style.maxHeight = null;
             }else{
-                container.style.display = 'none';
+                container.style.maxHeight = container.scrollHeight + 'px';
             }
         })
     }
