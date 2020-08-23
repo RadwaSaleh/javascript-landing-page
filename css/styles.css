@@ -74,6 +74,10 @@ section {
     display: inline-block;
 }
 
+.navbar__menu li.active{
+    background: #333;
+}
+
 .navbar__menu .menu__link {
     display: block;
     padding: 1em;
@@ -111,11 +115,14 @@ section {
 
 /* ---- Theme Rules ---- */
 /* Landing Container Styles. Note: hidden by default */
+/* add transition effect to max-height property with a duration of 1 second */
+/* ease-out specifies a transition effect with a slow end */
 .landing__container {
     padding: 1em;
     text-align: left;
-    display: block;
     overflow: hidden;
+    max-height: 0;
+    transition: max-height 1s ease-out;
 }
 
 @media only screen and (min-width: 35em){
@@ -228,7 +235,7 @@ section.active .landing__container::after {
     background-color: #e5e5e5;
     color: #444;
     cursor: pointer;
-    padding: 18px;
+    padding: 15px;
     width: 100%;
     border: none;
     text-align: left;
