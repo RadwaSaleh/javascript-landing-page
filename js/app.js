@@ -30,6 +30,19 @@ const removeActiveClassFromAllElements = (elements) => {
  * Main Functions
  */
 
+function scrollToSection(e){
+    const listAnchor = e.target;
+    const listAnchors = document.querySelectorAll('#navbar__list li a');
+
+    removeActiveClassFromAllElements(listAnchors);
+    listAnchor.classList.add('active');
+
+    const listItemRef = listAnchor.getAttribute('href');
+    const sectionIndex = listItemRef.charAt(listItemRef.length-1) - 1;
+    sections[sectionIndex].scrollIntoView({behavior: "smooth",block: "center"});
+    event.preventDefault();
+}
+
 /**
  * constructs the menu
  * and add event listener of 'click' to navigate to the right section
@@ -46,15 +59,12 @@ const generateDynNavMenu = () =>{
         listLink.setAttribute('id', `navlink${i}`);
         listLink.setAttribute('href', `#${sections[i].getAttribute('id')}`);
         listLink.classList.add('menu__link', 'menu__link:hover');
-        listLink.addEventListener('click', function () {
-            removeActiveClassFromAllElements(list.children);
-            listItem.classList.add('active');
-            sections[i].scrollIntoView({behavior: "smooth",block: "center"});
-            event.preventDefault();
-        });
 
         listItem.appendChild(listLink);
         list.appendChild(listItem);
+
+        //add click listener to scroll to page section
+        listLink.addEventListener('click', scrollToSection);
     }
 };
 
@@ -62,12 +72,14 @@ const generateDynNavMenu = () =>{
  * set active class to both the section in view and the corresponding nav menu item.
  */
 const setSectionActiveClass = () => {
+    const listAnchors = document.querySelectorAll('#navbar__list li a');
+
     for(let i = 0; i < sections.length; i++){
         if(isInViewport(sections[i])){
             removeActiveClassFromAllElements(sections);
             sections[i].classList.add('active');
-            removeActiveClassFromAllElements(list.children);
-            document.getElementById(`navli${i}`).classList.add('active');
+            removeActiveClassFromAllElements(listAnchors);
+            document.getElementById(`navlink${i}`).classList.add('active');
         }
     }
 };

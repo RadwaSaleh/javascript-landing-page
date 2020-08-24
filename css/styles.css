@@ -74,8 +74,9 @@ section {
     display: inline-block;
 }
 
-.navbar__menu li.active{
+.navbar__menu li a.active{
     background: #333;
+    color: #fff;
 }
 
 .navbar__menu .menu__link {
