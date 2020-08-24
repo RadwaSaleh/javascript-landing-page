@@ -30,6 +30,11 @@ const removeActiveClassFromAllElements = (elements) => {
  * Main Functions
  */
 
+/**
+ * constructs the menu
+ * and add event listener of 'click' to navigate to the right section
+ * add active class to the clicked menu item
+ */
 const generateDynNavMenu = () =>{
     for (let i = 0; i < sections.length; i++){
         const listItem = document.createElement('li');
@@ -53,6 +58,9 @@ const generateDynNavMenu = () =>{
     }
 };
 
+/**
+ * set active class to both the section in view and the corresponding nav menu item.
+ */
 const setSectionActiveClass = () => {
     for(let i = 0; i < sections.length; i++){
         if(isInViewport(sections[i])){
