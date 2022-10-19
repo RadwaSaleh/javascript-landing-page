@@ -25,6 +25,3 @@ npm install eslint --save-dev
 ```
 npx eslint yourfile.js
 ```
-
-## Contributing
-For suggestions, please open an issue first to discuss what you would like to change or improve.
